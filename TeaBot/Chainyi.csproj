@@ -56,18 +56,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="IHandler.cs" />
+    <Compile Include="FailureReporter.cs" />
+    <Compile Include="Handlers\WikiLinksHandler.cs" />
+    <Compile Include="Interfaces\IHandler.cs" />
     <Compile Include="DotNetWikiBot.cs" />
     <Compile Include="Chainyi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryResponse.cs" />
-    <Compile Include="HtmlEntitiesHandler.cs" />
-    <Compile Include="SampleHandler.cs" />
+    <Compile Include="Handlers\CheckWikiHandler.cs" />
     <Compile Include="SecuredConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DotNetWikiBot;
 
 namespace ChainyiBot
@@ -10,11 +11,20 @@ namespace ChainyiBot
         /// </summary>
         static void Main()
         {
+            FailureReporter.CleanOldCases();
             List<IHandler> handlers = new List<IHandler>
             {
-                new CheckWikiHandler()
+                new WikiLinksHandler()
             };
-            handlers.ForEach(handler => handler.Run());
+            handlers.ForEach(handler =>
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    handler.Run();
+                    System.Threading.Thread.Sleep(60 * 1000);
+                }
+            });
+            Console.ReadKey();
         }
     }
 }

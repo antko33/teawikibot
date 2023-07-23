@@ -1349,9 +1349,9 @@ namespace DotNetWikiBot
 		/// is disallowed.</exception>
 		/// <exception cref="EditConflictException">Edit conflict was detected.</exception>
 		/// <exception cref="WikiBotException">Wiki-related error.</exception>
-		public void Save(string comment, bool isMinorEdit)
+		public void Save(string comment, bool isMinorEdit, bool allowEmpty = false)
 		{
-			Save(text, comment, isMinorEdit, false);
+			Save(text, comment, isMinorEdit, false, allowEmpty: allowEmpty);
 		}
 
 		/// <summary>Saves specified text on page on live wiki.</summary>
@@ -1382,9 +1382,9 @@ namespace DotNetWikiBot
 		/// is disallowed.</exception>
 		/// <exception cref="EditConflictException">Edit conflict was detected.</exception>
 		/// <exception cref="WikiBotException">Wiki-related error.</exception>
-		public void Save(string newText, string comment, bool isMinorEdit, bool reviewVersion)
+		public void Save(string newText, string comment, bool isMinorEdit, bool reviewVersion, bool allowEmpty = false)
 		{
-			if (string.IsNullOrEmpty(newText) && string.IsNullOrEmpty(text))
+			if (string.IsNullOrEmpty(newText) && string.IsNullOrEmpty(text) && !allowEmpty)
 				throw new ArgumentNullException("newText",
 					Bot.Msg("No text is specified for page to save."));
 			if (string.IsNullOrEmpty(title))
