@@ -12,7 +12,7 @@ namespace ChainyiBot
 
         public static void ReportFailure(Site wiki, string pageName, string desc)
         {
-            var reportPage = new Page(wiki, "Участник:Чайный/PleaseCheck");
+            var reportPage = new Page(wiki, "Участник:Чайный бот/PleaseCheck");
             reportPage.Load();
 
             if (reportPage.text.Contains($"[[{pageName}]]"))
@@ -32,7 +32,7 @@ namespace ChainyiBot
         public static void CleanOldCases()
         {
             Site wiki = new Site(Constants.RuWikiUrl, SecuredConstants.Username, SecuredConstants.Password);
-            var reportPage = new Page(wiki, "Участник:Чайный/PleaseCheck");
+            var reportPage = new Page(wiki, "Участник:Чайный бот/PleaseCheck");
             reportPage.Load();
 
             List<string> recordsToRemove = new List<string>();

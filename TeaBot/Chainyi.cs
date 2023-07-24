@@ -20,13 +20,14 @@ namespace ChainyiBot
             {
 #if !DEBUG
                 new WikiLinksHandler(),
+                new InvalidRefHandler(),
 #endif
-                new InvalidRefHandler()
+                new RedRefsHandler()
             };
 #if TEST
             handlers.ForEach(handler =>
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     handler.Run();
                     System.Threading.Thread.Sleep(IntervalInMinutes * 60 * 1000);

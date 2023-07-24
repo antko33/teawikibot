@@ -68,6 +68,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="FailureReporter.cs" />
     <Compile Include="Handlers\InvalidRefHandler.cs" />
+    <Compile Include="Handlers\RedRefsHandler.cs" />
     <Compile Include="Handlers\WikiLinksHandler.cs" />
     <Compile Include="Interfaces\IHandler.cs" />
     <Compile Include="DotNetWikiBot.cs" />
